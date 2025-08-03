@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  
+  <!-- Application Title and Description -->
+  <data name="AppTitle" xml:space="preserve">
+    <value>محافظ برق - PowerGuard</value>
+  </data>
+  <data name="AppDescription" xml:space="preserve">
+    <value>جلوگیری از از دست رفتن داده‌ها در هنگام قطعی برق برنامه‌ریزی شده</value>
+  </data>
+  
+  <!-- Main Form -->
+  <data name="MainFormTitle" xml:space="preserve">
+    <value>محافظ برق</value>
+  </data>
+  <data name="SetShutdownTimer" xml:space="preserve">
+    <value>تنظیم تایمر خاموشی</value>
+  </data>
+  <data name="CancelShutdown" xml:space="preserve">
+    <value>لغو خاموشی</value>
+  </data>
+  <data name="ShutdownScheduledFor" xml:space="preserve">
+    <value>خاموشی برنامه‌ریزی شده برای: {0}</value>
+  </data>
+  <data name="SelectTime" xml:space="preserve">
+    <value>زمان قطعی برق را انتخاب کنید:</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>تنظیمات</value>
+  </data>
+  <data name="Exit" xml:space="preserve">
+    <value>خروج</value>
+  </data>
+  
+  <!-- Notifications -->
+  <data name="PowerOutageAlert" xml:space="preserve">
+    <value>هشدار قطعی برق</value>
+  </data>
+  <data name="SevenMinuteWarning" xml:space="preserve">
+    <value>رایانه شما در {0} دقیقه خاموش خواهد شد. لطفاً کار خود را ذخیره کنید.</value>
+  </data>
+  <data name="ShutdownInProgress" xml:space="preserve">
+    <value>در حال خاموش شدن در {0} ثانیه به دلیل قطعی برق برنامه‌ریزی شده</value>
+  </data>
+  <data name="ClickToCancelShutdown" xml:space="preserve">
+    <value>برای لغو، روی دکمه زیر کلیک کنید</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>لغو</value>
+  </data>
+  
+  <!-- System Tray -->
+  <data name="ShowMainWindow" xml:space="preserve">
+    <value>نمایش پنجره اصلی</value>
+  </data>
+  <data name="ShutdownIn" xml:space="preserve">
+    <value>خاموشی در: {0}</value>
+  </data>
+  <data name="NoTimerSet" xml:space="preserve">
+    <value>تایمری تنظیم نشده است</value>
+  </data>
+  
+  <!-- Settings Form -->
+  <data name="SettingsTitle" xml:space="preserve">
+    <value>تنظیمات محافظ برق</value>
+  </data>
+  <data name="GeneralSettings" xml:space="preserve">
+    <value>تنظیمات عمومی</value>
+  </data>
+  <data name="StartWithWindows" xml:space="preserve">
+    <value>شروع خودکار با ویندوز</value>
+  </data>
+  <data name="WarningTime" xml:space="preserve">
+    <value>زمان هشدار (دقیقه):</value>
+  </data>
+  <data name="ShutdownTime" xml:space="preserve">
+    <value>زمان خاموشی (دقیقه قبل از قطعی):</value>
+  </data>
+  <data name="EnableSmartReminders" xml:space="preserve">
+    <value>فعال‌سازی یادآوری هوشمند</value>
+  </data>
+  <data name="ReminderTime" xml:space="preserve">
+    <value>زمان یادآوری:</value>
+  </data>
+  <data name="RecurringSchedules" xml:space="preserve">
+    <value>برنامه‌های تکراری</value>
+  </data>
+  <data name="EnableRecurring" xml:space="preserve">
+    <value>فعال‌سازی برنامه تکراری</value>
+  </data>
+  <data name="RecurringType" xml:space="preserve">
+    <value>نوع تکرار:</value>
+  </data>
+  <data name="Daily" xml:space="preserve">
+    <value>روزانه</value>
+  </data>
+  <data name="Weekly" xml:space="preserve">
+    <value>هفتگی</value>
+  </data>
+  <data name="RecurringTime" xml:space="preserve">
+    <value>زمان تکرار:</value>
+  </data>
+  <data name="WeeklyDays" xml:space="preserve">
+    <value>روزهای هفته:</value>
+  </data>
+  <data name="Monday" xml:space="preserve">
+    <value>دوشنبه</value>
+  </data>
+  <data name="Tuesday" xml:space="preserve">
+    <value>سه‌شنبه</value>
+  </data>
+  <data name="Wednesday" xml:space="preserve">
+    <value>چهارشنبه</value>
+  </data>
+  <data name="Thursday" xml:space="preserve">
+    <value>پنج‌شنبه</value>
+  </data>
+  <data name="Friday" xml:space="preserve">
+    <value>جمعه</value>
+  </data>
+  <data name="Saturday" xml:space="preserve">
+    <value>شنبه</value>
+  </data>
+  <data name="Sunday" xml:space="preserve">
+    <value>یکشنبه</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>ذخیره</value>
+  </data>
+  
+  <!-- Welcome Screen -->
+  <data name="WelcomeTitle" xml:space="preserve">
+    <value>خوش آمدید به محافظ برق</value>
+  </data>
+  <data name="WelcomeMessage" xml:space="preserve">
+    <value>محافظ برق به شما کمک می‌کند تا از از دست رفتن داده‌ها در هنگام قطعی برق برنامه‌ریزی شده جلوگیری کنید. این برنامه هشدارهای به موقع ارائه داده و فرآیند خاموشی سیستم را خودکار می‌کند.</value>
+  </data>
+  <data name="StartAutomatically" xml:space="preserve">
+    <value>شروع خودکار محافظ برق با ویندوز</value>
+  </data>
+  <data name="GetStarted" xml:space="preserve">
+    <value>شروع کنید</value>
+  </data>
+  
+  <!-- Smart Reminders -->
+  <data name="SmartReminderTitle" xml:space="preserve">
+    <value>یادآوری هوشمند</value>
+  </data>
+  <data name="SmartReminderMessage" xml:space="preserve">
+    <value>فراموش نکنید که زمان قطعی برق امروز را تنظیم کنید!</value>
+  </data>
+  <data name="SetNow" xml:space="preserve">
+    <value>اکنون تنظیم کنید</value>
+  </data>
+  <data name="RemindLater" xml:space="preserve">
+    <value>بعداً یادآوری کن</value>
+  </data>
+  
+  <!-- Logging Messages -->
+  <data name="LogAppStarted" xml:space="preserve">
+    <value>برنامه شروع شد</value>
+  </data>
+  <data name="LogTimerSet" xml:space="preserve">
+    <value>تایمر برای {0} تنظیم شد</value>
+  </data>
+  <data name="LogWarningIssued" xml:space="preserve">
+    <value>هشدار {0} دقیقه‌ای صادر شد</value>
+  </data>
+  <data name="LogShutdownInitiated" xml:space="preserve">
+    <value>خاموشی آغاز شد</value>
+  </data>
+  <data name="LogShutdownCancelled" xml:space="preserve">
+    <value>خاموشی لغو شد</value>
+  </data>
+  <data name="LogRecurringScheduleActivated" xml:space="preserve">
+    <value>برنامه تکراری فعال شد: {0}</value>
+  </data>
+  
+  <!-- Error Messages -->
+  <data name="ErrorTitle" xml:space="preserve">
+    <value>خطا</value>
+  </data>
+  <data name="ErrorShutdownFailed" xml:space="preserve">
+    <value>خاموشی سیستم با شکست مواجه شد. لطفاً دستی خاموش کنید.</value>
+  </data>
+  <data name="ErrorStartupRegistration" xml:space="preserve">
+    <value>ثبت در استارت‌آپ ویندوز با شکست مواجه شد.</value>
+  </data>
+  <data name="ErrorInvalidTime" xml:space="preserve">
+    <value>زمان انتخاب شده معتبر نیست.</value>
+  </data>
+  
+  <!-- Confirmation Messages -->
+  <data name="ConfirmExit" xml:space="preserve">
+    <value>آیا مطمئن هستید که می‌خواهید از برنامه خارج شوید؟ اگر تایمری تنظیم شده باشد، لغو خواهد شد.</value>
+  </data>
+  <data name="ConfirmTitle" xml:space="preserve">
+    <value>تأیید</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>بله</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>خیر</value>
+  </data>
+  
+  <!-- Time Format -->
+  <data name="TimeFormat" xml:space="preserve">
+    <value>HH:mm</value>
+  </data>
+  <data name="DateTimeFormat" xml:space="preserve">
+    <value>yyyy/MM/dd HH:mm</value>
+  </data>
+  
+</root>

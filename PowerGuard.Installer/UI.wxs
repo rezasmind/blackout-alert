@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+  
+  <Fragment>
+    <!-- Custom UI Definition -->
+    <UI Id="PowerGuardUI">
+      
+      <!-- Use WixUI_InstallDir as base -->
+      <UIRef Id="WixUI_InstallDir" />
+      
+      <!-- Custom Welcome Dialog -->
+      <DialogRef Id="WelcomeDlg" />
+      <DialogRef Id="LicenseAgreementDlg" />
+      <DialogRef Id="InstallDirDlg" />
+      <DialogRef Id="VerifyReadyDlg" />
+      <DialogRef Id="ProgressDlg" />
+      <DialogRef Id="ExitDialog" />
+      
+      <!-- Custom Bitmaps -->
+      <Binary Id="WixUIBannerBmp" SourceFile="Resources\Banner.bmp" />
+      <Binary Id="WixUIDialogBmp" SourceFile="Resources\Dialog.bmp" />
+      <Binary Id="WixUIExclamationIco" SourceFile="Resources\Exclamation.ico" />
+      <Binary Id="WixUIInfoIco" SourceFile="Resources\Information.ico" />
+      <Binary Id="WixUINewIco" SourceFile="Resources\New.ico" />
+      <Binary Id="WixUIUpIco" SourceFile="Resources\Up.ico" />
+
+      <!-- Customize Welcome Dialog Text -->
+      <Publish Dialog="WelcomeDlg" Control="Next" Event="NewDialog" Value="LicenseAgreementDlg">1</Publish>
+      
+      <!-- Skip License Agreement for now -->
+      <Publish Dialog="WelcomeDlg" Control="Next" Event="NewDialog" Value="InstallDirDlg">1</Publish>
+
+      <!-- Custom Properties for Persian Text -->
+      <Property Id="WIXUI_WELCOMEDLG_TEXT">
+        به نصب‌کننده محافظ برق خوش آمدید.
+        
+        این برنامه به شما کمک می‌کند تا از از دست رفتن داده‌ها در هنگام قطعی برق برنامه‌ریزی شده جلوگیری کنید.
+        
+        برای ادامه روی "بعدی" کلیک کنید.
+      </Property>
+
+      <Property Id="WIXUI_INSTALLDIR_TEXT">
+        لطفاً پوشه‌ای را که می‌خواهید محافظ برق در آن نصب شود انتخاب کنید، یا روی "بعدی" کلیک کنید تا در مکان پیش‌فرض نصب شود.
+      </Property>
+
+      <Property Id="WIXUI_VERIFYREADY_TEXT">
+        آماده نصب محافظ برق هستید.
+        
+        برای شروع نصب روی "نصب" کلیک کنید.
+      </Property>
+
+      <Property Id="WIXUI_EXITDIALOG_TEXT">
+        نصب محافظ برق با موفقیت تکمیل شد.
+        
+        اکنون می‌توانید از برنامه استفاده کنید.
+      </Property>
+
+    </UI>
+
+    <!-- Error Messages in Persian -->
+    <Fragment>
+      <Property Id="WIXUI_EXITDIALOGOPTIONALTEXT">
+        برای اطلاعات بیشتر و پشتیبانی به وب‌سایت ما مراجعه کنید.
+      </Property>
+    </Fragment>
+
+  </Fragment>
+
+  <!-- Custom Actions for Post-Install -->
+  <Fragment>
+    
+    <!-- Create Application Data Directory -->
+    <CustomAction Id="CreateAppDataDir"
+                  Directory="INSTALLFOLDER"
+                  ExeCommand="cmd.exe /c mkdir &quot;%APPDATA%\PowerGuard&quot;"
+                  Execute="deferred"
+                  Impersonate="yes"
+                  Return="ignore" />
+
+    <!-- Set Permissions on Installation Directory -->
+    <CustomAction Id="SetPermissions"
+                  Directory="INSTALLFOLDER"
+                  ExeCommand="icacls &quot;[INSTALLFOLDER]&quot; /grant Users:(OI)(CI)F"
+                  Execute="deferred"
+                  Impersonate="no"
+                  Return="ignore" />
+
+    <!-- Register Application for Windows Defender Exclusion (Optional) -->
+    <CustomAction Id="RegisterDefenderExclusion"
+                  Directory="INSTALLFOLDER"
+                  ExeCommand="powershell.exe -Command &quot;Add-MpPreference -ExclusionPath '[INSTALLFOLDER]' -ErrorAction SilentlyContinue&quot;"
+                  Execute="deferred"
+                  Impersonate="no"
+                  Return="ignore" />
+
+    <!-- Uninstall Cleanup Actions -->
+    <CustomAction Id="CleanupAppData"
+                  Directory="INSTALLFOLDER"
+                  ExeCommand="cmd.exe /c rmdir /s /q &quot;%APPDATA%\PowerGuard&quot;"
+                  Execute="deferred"
+                  Impersonate="yes"
+                  Return="ignore" />
+
+    <CustomAction Id="CleanupStartupRegistry"
+                  Directory="INSTALLFOLDER"
+                  ExeCommand="reg.exe delete &quot;HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run&quot; /v PowerGuard /f"
+                  Execute="deferred"
+                  Impersonate="yes"
+                  Return="ignore" />
+
+    <CustomAction Id="StopRunningProcess"
+                  Directory="INSTALLFOLDER"
+                  ExeCommand="taskkill.exe /f /im PowerGuard.exe"
+                  Execute="immediate"
+                  Impersonate="yes"
+                  Return="ignore" />
+
+    <!-- Custom Action Sequence -->
+    <InstallExecuteSequence>
+      <!-- Install Actions -->
+      <Custom Action="CreateAppDataDir" After="InstallFiles">NOT Installed</Custom>
+      <Custom Action="SetPermissions" After="CreateAppDataDir">NOT Installed</Custom>
+      <Custom Action="RegisterDefenderExclusion" After="SetPermissions">NOT Installed</Custom>
+
+      <!-- Uninstall Actions -->
+      <Custom Action="StopRunningProcess" Before="RemoveFiles">Installed AND REMOVE="ALL"</Custom>
+      <Custom Action="CleanupStartupRegistry" After="RemoveFiles">Installed AND REMOVE="ALL"</Custom>
+      <Custom Action="CleanupAppData" After="CleanupStartupRegistry">Installed AND REMOVE="ALL"</Custom>
+    </InstallExecuteSequence>
+
+  </Fragment>
+
+</Wix>

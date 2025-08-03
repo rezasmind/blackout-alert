@@ -1,0 +1,16 @@
+C:\Users\EXO\Projects\blackout-alert\PowerGuard\bin\Release\net8.0-windows\PowerGuard.exe
+C:\Users\EXO\Projects\blackout-alert\PowerGuard\bin\Release\net8.0-windows\Resources\Fonts\Vazirmatn-Black.ttf
+C:\Users\EXO\Projects\blackout-alert\PowerGuard\bin\Release\net8.0-windows\Resources\Fonts\Vazirmatn-Bold.ttf
+C:\Users\EXO\Projects\blackout-alert\PowerGuard\bin\Release\net8.0-windows\Resources\Fonts\Vazirmatn-ExtraBold.ttf
+C:\Users\EXO\Projects\blackout-alert\PowerGuard\bin\Release\net8.0-windows\Resources\Fonts\Vazirmatn-ExtraLight.ttf
+C:\Users\EXO\Projects\blackout-alert\PowerGuard\bin\Release\net8.0-windows\Resources\Fonts\Vazirmatn-Light.ttf
+C:\Users\EXO\Projects\blackout-alert\PowerGuard\bin\Release\net8.0-windows\Resources\Fonts\Vazirmatn-Medium.ttf
+C:\Users\EXO\Projects\blackout-alert\PowerGuard\bin\Release\net8.0-windows\Resources\Fonts\Vazirmatn-Regular.ttf
+C:\Users\EXO\Projects\blackout-alert\PowerGuard\bin\Release\net8.0-windows\Resources\Fonts\Vazirmatn-SemiBold.ttf
+C:\Users\EXO\Projects\blackout-alert\PowerGuard\bin\Release\net8.0-windows\Resources\Fonts\Vazirmatn-Thin.ttf
+C:\Users\EXO\Projects\blackout-alert\PowerGuard\bin\Release\net8.0-windows\PowerGuard.dll
+C:\Users\EXO\Projects\blackout-alert\PowerGuard\bin\Release\net8.0-windows\PowerGuard.deps.json
+C:\Users\EXO\Projects\blackout-alert\PowerGuard\bin\Release\net8.0-windows\PowerGuard.runtimeconfig.json
+C:\Users\EXO\Projects\blackout-alert\PowerGuard\bin\Release\net8.0-windows\PowerGuard.pdb
+C:\Users\EXO\Projects\blackout-alert\PowerGuard\bin\Release\net8.0-windows\System.Management.dll
+C:\Users\EXO\Projects\blackout-alert\PowerGuard\bin\Release\net8.0-windows\runtimes\win\lib\net8.0\System.Management.dll

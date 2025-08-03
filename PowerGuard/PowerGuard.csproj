@@ -1,0 +1,57 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <!-- <ApplicationIcon>Resources\powerguard.ico</ApplicationIcon> -->
+    <AssemblyTitle>PowerGuard Shutdown Utility</AssemblyTitle>
+    <AssemblyDescription>Prevents data loss during scheduled power outages by providing warnings and automated shutdowns</AssemblyDescription>
+    <AssemblyCompany>PowerGuard</AssemblyCompany>
+    <AssemblyProduct>PowerGuard</AssemblyProduct>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <Copyright>Copyright © 2025</Copyright>
+    <StartupObject>PowerGuard.Program</StartupObject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Management" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resources\Strings.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Strings.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\Strings.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <!-- Include Vazir Matn font files as embedded resources -->
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Fonts\Vazirmatn-Thin.ttf" Condition="Exists('Resources\Fonts\Vazirmatn-Thin.ttf')" />
+    <EmbeddedResource Include="Resources\Fonts\Vazirmatn-ExtraLight.ttf" Condition="Exists('Resources\Fonts\Vazirmatn-ExtraLight.ttf')" />
+    <EmbeddedResource Include="Resources\Fonts\Vazirmatn-Light.ttf" Condition="Exists('Resources\Fonts\Vazirmatn-Light.ttf')" />
+    <EmbeddedResource Include="Resources\Fonts\Vazirmatn-Regular.ttf" Condition="Exists('Resources\Fonts\Vazirmatn-Regular.ttf')" />
+    <EmbeddedResource Include="Resources\Fonts\Vazirmatn-Medium.ttf" Condition="Exists('Resources\Fonts\Vazirmatn-Medium.ttf')" />
+    <EmbeddedResource Include="Resources\Fonts\Vazirmatn-SemiBold.ttf" Condition="Exists('Resources\Fonts\Vazirmatn-SemiBold.ttf')" />
+    <EmbeddedResource Include="Resources\Fonts\Vazirmatn-Bold.ttf" Condition="Exists('Resources\Fonts\Vazirmatn-Bold.ttf')" />
+    <EmbeddedResource Include="Resources\Fonts\Vazirmatn-ExtraBold.ttf" Condition="Exists('Resources\Fonts\Vazirmatn-ExtraBold.ttf')" />
+    <EmbeddedResource Include="Resources\Fonts\Vazirmatn-Black.ttf" Condition="Exists('Resources\Fonts\Vazirmatn-Black.ttf')" />
+  </ItemGroup>
+
+  <!-- Copy font files to output directory for file-based loading -->
+  <ItemGroup>
+    <None Include="Resources\Fonts\*.ttf" Condition="Exists('Resources\Fonts\')" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+</Project>

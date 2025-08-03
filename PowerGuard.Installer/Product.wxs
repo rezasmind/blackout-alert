@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+  
+  <!-- Product Definition -->
+  <Product Id="*" 
+           Name="محافظ برق - PowerGuard" 
+           Language="1065" 
+           Version="$(var.PowerGuardVersion)" 
+           Manufacturer="PowerGuard Team" 
+           UpgradeCode="12345678-1234-1234-1234-123456789012">
+    
+    <!-- Package Information -->
+    <Package InstallerVersion="500" 
+             Compressed="yes" 
+             InstallScope="perMachine"
+             Description="محافظ برق - جلوگیری از از دست رفتن داده‌ها در هنگام قطعی برق"
+             Comments="PowerGuard Shutdown Utility v$(var.PowerGuardVersion)"
+             Keywords="PowerGuard,Shutdown,Power,Outage,Persian,فارسی"
+             Manufacturer="PowerGuard Team" />
+
+    <!-- Media and Cabinet -->
+    <Media Id="1" Cabinet="PowerGuard.cab" EmbedCab="yes" />
+
+    <!-- Major Upgrade Logic -->
+    <MajorUpgrade DowngradeErrorMessage="A newer version of PowerGuard is already installed." />
+
+    <!-- Installation Directory Structure -->
+    <StandardDirectory Id="ProgramFilesFolder">
+      <Directory Id="INSTALLFOLDER" Name="PowerGuard">
+        <Directory Id="ResourcesFolder" Name="Resources" />
+      </Directory>
+    </StandardDirectory>
+
+    <!-- Start Menu Directory -->
+    <StandardDirectory Id="ProgramMenuFolder">
+      <Directory Id="ApplicationProgramsFolder" Name="PowerGuard" />
+    </StandardDirectory>
+
+    <!-- Desktop Directory -->
+    <StandardDirectory Id="DesktopFolder" />
+
+    <!-- Features -->
+    <Feature Id="ProductFeature" Title="PowerGuard Application" Level="1">
+      <ComponentGroupRef Id="ProductComponents" />
+      <ComponentRef Id="ApplicationShortcut" />
+      <ComponentRef Id="DesktopShortcut" />
+      <ComponentRef Id="RegistryEntries" />
+    </Feature>
+
+    <!-- UI Reference -->
+    <UIRef Id="PowerGuardUI" />
+
+    <!-- Properties -->
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
+    <Property Id="ARPPRODUCTICON" Value="PowerGuardIcon" />
+    <Property Id="ARPHELPLINK" Value="https://github.com/powerguard/powerguard" />
+    <Property Id="ARPURLINFOABOUT" Value="https://github.com/powerguard/powerguard" />
+    <Property Id="ARPNOREPAIR" Value="yes" Secure="yes" />
+    
+    <!-- Launch Application After Install -->
+    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="راه‌اندازی محافظ برق" />
+    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOX" Value="1" />
+    <Property Id="WixShellExecTarget" Value="[#PowerGuardExe]" />
+    <CustomAction Id="LaunchApplication" 
+                  BinaryKey="WixCA" 
+                  DllEntry="WixShellExec" 
+                  Impersonate="yes" />
+
+    <!-- Install Sequences -->
+    <InstallExecuteSequence>
+      <Custom Action="LaunchApplication" After="InstallFinalize">
+        WIXUI_EXITDIALOGOPTIONALCHECKBOX = 1 and NOT Installed
+      </Custom>
+    </InstallExecuteSequence>
+
+  </Product>
+</Wix>

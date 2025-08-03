@@ -1,0 +1,27 @@
+<Project Sdk="WiX.SDK/4.0.5">
+
+  <PropertyGroup>
+    <OutputType>Package</OutputType>
+    <TargetFramework>net472</TargetFramework>
+    <OutputName>PowerGuardSetup</OutputName>
+    <DefineConstants>
+      PowerGuardVersion=1.0.0.0;
+      PowerGuardBinPath=..\PowerGuard\bin\Release\net8.0-windows\;
+    </DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="WiX.UI.WixUI" Version="4.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Product.wxs" />
+    <Compile Include="Components.wxs" />
+    <Compile Include="UI.wxs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\**" />
+  </ItemGroup>
+
+</Project>
